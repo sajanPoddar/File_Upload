@@ -1,0 +1,22 @@
+.table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th{
+	font-size: 13px;
+	padding: 3px;
+}
+
+#page-wrapper{
+	padding: 10px;
+}
+.btn{
+	border:0;
+	border-radius: 1px;
+	padding: 4px 9px;
+	font-size: 12px;
+}
+.form-control
+{
+	padding: 4px 8px;
+	
+	border-radius: 1px;
+	font-size: 12px;
+
+}
