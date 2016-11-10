@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Model\Categories;
-class CategoryController extends Controller
+use App\Model\Content;
+class ContentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,8 +14,8 @@ class CategoryController extends Controller
      */
     public function index()
     {   
-        $categories = Categories::all();
-        return view('Admin.Category.index')->with(compact('categories'));
+        $contents = Content::all();
+        return view('Admin.Content.index')->with(compact('contents'));
     }
 
     /**
@@ -23,9 +24,10 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {   
+    {
+        //
         $categories = Categories::all();
-        return view('Admin.Category.create')->with(compact('categories'));
+        return view('Admin.Content.create')->with(compact('categories'));
     }
 
     /**
@@ -36,12 +38,15 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //store categories
+        //
         $input = $request->except('_token');
-        // dd($input);
-        Categories::create($input);
-        return redirect('categories');
-
+        if($request->hasFile('content_file')){
+            $filename = $request->file('content_file')->getClientOriginalName();
+            $request->file('content_file')->move(public_path('uploads'),$filename);
+            $input['content_file'] = $filename;
+        }
+        Content::create($input);
+        return redirect('contents');
     }
 
     /**
@@ -86,9 +91,6 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        // Categories::destroy($id)->where('parent_Category' , $id);
-        Categories::destroy($id);
-        
-        return redirect('categories');
+        //
     }
 }

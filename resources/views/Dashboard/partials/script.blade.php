@@ -23,7 +23,8 @@
         $(document).ready(function () {
 
             $('#example1').datepicker({
-                format: "yyyy-mm-dd"
+                format: "yyyy-mm-dd",
+                autoclose:true
             });  
             
             $('.data-table').DataTable();

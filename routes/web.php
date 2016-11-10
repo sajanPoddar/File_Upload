@@ -15,3 +15,11 @@ Route::get('/', function () {
     return view('Admin.Test.index');
 });
 Route::resource('categories' , 'CategoryController');
+Route::resource('contents' , 'ContentController');
+
+
+Route::get('/download/{file}',[
+	'uses' =>'DownloadController@download',
+	'as' =>'download.file'
+
+	]);
