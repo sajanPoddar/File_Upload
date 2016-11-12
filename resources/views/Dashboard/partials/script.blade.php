@@ -33,11 +33,18 @@
 
   });
 
-  
+
   
 </script>
 <script type="text/javascript">
-  
+  function myFunction(f) {
+    var text = $("#text");
+    var str = text.val();
+    // var str = document.getElementById("demo").innerHTML; 
+    var res = str.replace("", "-");
+    // f.content_slug.value = f.content_name.value;
+     document.getElementById("slug").value =res;
+}
 
 </script>
 <script type="dist/js/custom.js"></script>

@@ -12,9 +12,9 @@
                 <input type='hidden' name='_token' value='{{csrf_token()}}'>
                 <div class="form-group">
                     <label for="">Content Name</label>
-                    <input id="title"  type="text" class="form-control"   placeholder="content name" name="content_name">
+                    <input id="text"  type="text" class="form-control"   placeholder="content name" name="content_name">
                 </div>
-                
+                <p id="demo">Visit Microsoft!</p>
                 <div class="form-group">
                     <label for="">  Category </label>
                     <select name="category_id" id="" class="form-control" required>
@@ -28,7 +28,9 @@
                 </div>
                 <div class="form-group">
                     <label for=""> Slug</label>
-                    <input id="slug" type="text" class="form-control"  placeholder="slug" name="content_slug">
+                   
+                    <a href="javascript: myFunction(this.form);" >try</a>
+                    <input id="slug" type="text" class="form-control"  placeholder="slug" name="content_slug" value="">
                     
                 </div>
                 <div class="form-group">
