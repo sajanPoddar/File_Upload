@@ -18,30 +18,20 @@
       <th>action</th>
     </tr>
    </thead>
-   <?php
-    $i = 0;
-
-   ?>
   <tbody>
-   @foreach($categories as $category)
-    <?php $i++;
-    ?>
+   @foreach($categories as $key => $category)
     <tr>
-      <th scope="row"><?php echo $i;?></th>
+      <th scope="row">{{ ++$key }}</th>
       <td>{{ $category->category_title }}</td>
       <td>{{ $category->category_slug }}</td>
-      <td>{{ substr($category->category_description , 0 ,50) }}</td>
-      <?php if($category->parent_Category == 0){?>
+      <td>{!! substr($category->category_description , 0 ,50) !!}</td>
+      @if($category->parent_Category == 0)
       <td>No Parent</td>
-      <?php } else{?>
-      <?php
-      $results = DB::table('categories')->where('id' , $category->parent_Category)->get();
-      // dd($results);
-      ?>
-      <td> {{ $category->category_title }} </td>
-        
-    <?php }?>  
-    <td><a class=" btn btn-info"  href="">Edit</a> 
+      @else
+      <td> {{ $category->parent->category_title or '' }} </td>
+        @endif
+
+    <td><a class=" btn btn-info"  href="">Edit</a>
     <form  method="post" action="categories/{{ $category->id }}">
     <input type='hidden' name='_token' value='{{csrf_token()}}'>
     <input type="hidden" name="_method" value="DELETE">

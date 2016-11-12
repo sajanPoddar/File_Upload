@@ -39,15 +39,17 @@
 
         <td>
        
-          <a href="{{ route('download.file', ['file' =>$content->content_file ] )}}"> <img src="/uploads/{{ $content->content_file }}" height="130px" alt=""/></a>
+          <a href="{{ route('download.file', ['file' =>$content->content_file ] )}}">
+            <img src="/uploads/{{ $content->content_file }}" height="130px" alt=""/>
+          </a>
 
-          <a href=""><video width="120" height="140" alt="" controls>
-            <source src="/uploads/{{ $content->content_file }}" type="">
-
+          <a href=" {{ route('download.file', ['file' =>$content->content_file ] )}} ">
+            <video width="120" height="140" alt="" controls>
+              <source src="/uploads/{{ $content->content_file }}" type="">
             </video> </a>
           </td>
           <td>{{ $content->content_status }}</td>
-          <td>{{ $content->category_id }}</td>
+          <td>{{ $content->category->category_title or '' }}</td>
           <td> {{ $content->published_at }} </td>
              
 

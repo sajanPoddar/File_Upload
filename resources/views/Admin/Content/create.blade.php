@@ -12,7 +12,7 @@
                 <input type='hidden' name='_token' value='{{csrf_token()}}'>
                 <div class="form-group">
                     <label for="">Content Name</label>
-                    <input  class="form-control"  aria-describedby="titleHelp" placeholder="content name" name="content_name">
+                    <input id="title"  type="text" class="form-control"   placeholder="content name" name="content_name">
                 </div>
                 
                 <div class="form-group">
@@ -28,7 +28,7 @@
                 </div>
                 <div class="form-group">
                     <label for=""> Slug</label>
-                    <input  class="form-control"  aria-describedby="titleHelp" placeholder="slug" name="content_slug">
+                    <input id="slug" type="text" class="form-control"  placeholder="slug" name="content_slug">
                     
                 </div>
                 <div class="form-group">
